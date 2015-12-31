@@ -356,7 +356,12 @@ class ResolutionRequest {
         throw new UnableToResolveError(
           fromModule,
           toModule,
-          `Invalid directory ${potentialDirPath}`,
+          `Invalid directory ${potentialDirPath}.
+Did you forget to npm install the new package?
+This might be a known bug https://github.com/facebook/react-native/issues/4968
+To resolve try following steps
+1. watchman watch-del-all
+2. npm cache clean && npm install`,
         );
       }
 
